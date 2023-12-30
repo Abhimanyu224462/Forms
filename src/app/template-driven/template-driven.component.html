@@ -1,0 +1,32 @@
+<h3 class="text-center">Template Driven Form</h3>
+
+<div class="container w-50 mt-2">
+  <form #userRegForm="ngForm" (ngSubmit)="save(userRegForm)">
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default">First Name</span>
+      <input type="text" class="form-control" name="fName" ngModel>
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default">Last Name</span>
+      <input type="text" class="form-control" name="lName" ngModel>
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default">Mobile</span>
+      <input type="number" class="form-control" name="Mobile" ngModel>
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
+      <input type="email" class="form-control" name="Mail" ngModel>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+  </form>
+</div>
+
+<h4>Value : {{userRegForm.value | json}}</h4>
+<h4>Valid : {{userRegForm.valid}}</h4>
+<h4>inValid : {{userRegForm.invalid}}</h4>
+<h4>Dirty : {{userRegForm.dirty}}</h4>
+<h4>Pristine : {{userRegForm.pristine}}</h4>
+<h4>Submitted : {{userRegForm.submitted}}</h4>

@@ -1,0 +1,63 @@
+<h3 class="text-center">Template Driven Form</h3>
+
+<div class="container w-50 mt-2">
+    <form #userRegForm="ngForm" (ngSubmit)="save(userRegForm)">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">First Name</span>
+            <input type="text" class="form-control" name="fName" [(ngModel)]="twoWayForm.fname" #fname="ngModel"
+                required minlength="2" maxlength="30">
+            <div *ngIf="fname.dirty">
+                <div id="validationServer03Feedback" class="invalid-feedback d-block"
+                    *ngIf="fname.errors?.['required']">
+                    *Required Field.
+                </div>
+                <div id="validationServer03Feedback" class="invalid-feedback d-block"
+                    *ngIf="fname.errors?.['minlength']">
+                    *Minimum Length in 2.
+                </div>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Last Name</span>
+            <input type="text" class="form-control" name="lName" [(ngModel)]="twoWayForm.lname">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Mobile</span>
+            <input type="text" class="form-control" name="Mobile" [(ngModel)]="twoWayForm.mobile" #mobile="ngModel"
+                required minlength="10" maxlength="10">
+            <div *ngIf="mobile.dirty">
+                <div id="validationServer03Feedback" class="invalid-feedback d-block"
+                    *ngIf="mobile.errors?.['required']">
+                    *Required Field.
+                </div>
+                <div id="validationServer03Feedback" class="invalid-feedback d-block"
+                    *ngIf="mobile.errors?.['minlength']">
+                    *Minimum length is 10.
+                </div>
+                <div id="validationServer03Feedback" class="invalid-feedback d-block"
+                    *ngIf="mobile.errors?.['maxlength']">
+                    *Maximum length is 10.
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
+            <input type="email" class="form-control" name="Mail" [(ngModel)]="twoWayForm.mail" #mail="ngModel" required>
+            <div id="validationServer03Feedback" class="invalid-feedback d-block" *ngIf="mail.invalid">
+                *Required Field.
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="userRegForm.invalid">Submit</button>
+
+    </form>
+</div>
+
+<h4>Value : {{userRegForm.value | json}}</h4>
+<h4>Valid : {{userRegForm.valid}}</h4>
+<h4>inValid : {{userRegForm.invalid}}</h4>
+<h4>Dirty : {{userRegForm.dirty}}</h4>
+<h4>Pristine : {{userRegForm.pristine}}</h4>
+<h4>Submitted : {{userRegForm.submitted}}</h4>
