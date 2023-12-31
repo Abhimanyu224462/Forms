@@ -10,6 +10,8 @@ import { TemplateValidationComponent } from './template-validation/template-vali
 import { TemplateValidationErrorsComponent } from './template-validation-errors/template-validation-errors.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { ReactiveErrorsComponent } from './reactive-errors/reactive-errors.component';
+import { ReactiveFormBuilderComponent } from './reactive-form-builder/reactive-form-builder.component';
+import { NestedFormComponent } from './nested-form/nested-form.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ReactiveErrorsComponent } from './reactive-errors/reactive-errors.compo
     TemplateValidationComponent,
     TemplateValidationErrorsComponent,
     ReactiveFormComponent,
-    ReactiveErrorsComponent
+    ReactiveErrorsComponent,
+    ReactiveFormBuilderComponent,
+    NestedFormComponent
   ],
   imports: [
     BrowserModule,

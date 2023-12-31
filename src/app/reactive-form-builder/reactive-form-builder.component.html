@@ -1,0 +1,59 @@
+
+<div class="container col-md-8">
+    <h2 style="text-align: center;">Reactive FormBuilder with errors object</h2>
+    <form [formGroup]="userRegForm" (ngSubmit)="submit()">
+<div class="mb-3 row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">First Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputPassword" formControlName="firstName">
+      <div class="invalid-feedback d-block" *ngIf="firstName?.invalid  ">
+        It is a required field
+      </div>
+      <div class="invalid-feedback d-block" *ngIf="userRegForm.get('firstName')?.errors?.['minlength']">
+        Minimum length should be 2
+      </div>
+      <div class="invalid-feedback d-block" *ngIf="userRegForm.get('firstName')?.errors?.['maxlength']">
+        Minimum length should be 2
+      </div>
+    
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Last Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputPassword" formControlName="lastName">
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Mobile</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputPassword" formControlName="mobile">
+      <div class="invalid-feedback d-block"*ngIf="userRegForm.get('mobile')?.invalid">
+        It is a required field
+      </div>
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputPassword" formControlName="email">
+      <div class="invalid-feedback d-block" *ngIf="userRegForm.get('email')?.invalid">
+        It is a required field
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-secondary" [disabled]="userRegForm.invalid">Submit</button> &nbsp;
+  <button type="button" class="btn btn-secondary" (click)="reset()" >Reset</button>&nbsp;
+  <button type="button" class="btn btn-primary" (click)="setData()">SetData</button> &nbsp;
+  <button type="button" class="btn btn-primary" (click)="patchData()">PatchData</button>
+</form>
+</div>
+
+<p>Properties: {{userRegForm.value | json }}</p>
+<p>Properties: {{userRegForm.touched}}</p>
+<p>Properties: {{userRegForm.untouched}}</p>
+<p>Properties: {{userRegForm.dirty}}</p>
+<p>Properties: {{userRegForm.pristine}}</p>
+<p>Properties: {{userRegForm.errors}}</p>
+<p>Properties: {{userRegForm.status}}</p>
