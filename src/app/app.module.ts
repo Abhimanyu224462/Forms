@@ -12,6 +12,7 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { ReactiveErrorsComponent } from './reactive-errors/reactive-errors.component';
 import { ReactiveFormBuilderComponent } from './reactive-form-builder/reactive-form-builder.component';
 import { NestedFormComponent } from './nested-form/nested-form.component';
+import { CustomValidationComponent } from './custom-validation/custom-validation.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NestedFormComponent } from './nested-form/nested-form.component';
     ReactiveFormComponent,
     ReactiveErrorsComponent,
     ReactiveFormBuilderComponent,
-    NestedFormComponent
+    NestedFormComponent,
+    CustomValidationComponent
   ],
   imports: [
     BrowserModule,
